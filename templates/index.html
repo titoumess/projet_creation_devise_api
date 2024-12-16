@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Liste des Devises</title>
+</head>
+<body>
+    <h1>Liste des Devises</h1>
+    <ul>
+        {% for currency in currencies %}
+            <li><a href="{{ url_for('currency', id_devise=currency.id_devise) }}">{{ currency.nom_devise }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('upload') }}">Télécharger un fichier CSV</a>
+</body>
+</html>
