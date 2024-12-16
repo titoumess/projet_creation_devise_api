@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from database import create_connection  # Assurez-vous d'avoir ce fichier pour la connexion à la base de données
+from database import create_connection
 
 app = FastAPI()
 
