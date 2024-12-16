@@ -7,12 +7,14 @@
     <title>Liste des Devises</title>
 </head>
 <body>
-    <h1>Liste des Devises</h1>
-    <ul>
-        {% for currency in currencies %}
-            <li><a href="{{ url_for('currency', id_devise=currency.id_devise) }}">{{ currency.nom_devise }}</a></li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('upload') }}">Télécharger un fichier CSV</a>
+    <div class="container">
+        <h1>Liste des Devises</h1>
+        <ul>
+            {% for currency in currencies %}
+                <li><a href="{{ url_for('currency', id_devise=currency.id_devise) }}">{{ currency.nom_devise }}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('upload') }}" class="back-link">Télécharger un fichier CSV</a>
+    </div>
 </body>
 </html>

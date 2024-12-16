@@ -9,10 +9,6 @@ class TauxChange(BaseModel):
     date: str
     taux_change: float
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
 @app.get("/rates/{id_devise}")
 def get_currency_rate(id_devise: int):
     conn = create_connection()

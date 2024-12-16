@@ -7,11 +7,13 @@
     <title>Télécharger un Fichier CSV</title>
 </head>
 <body>
-    <h1>Télécharger un Fichier CSV</h1>
-    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <button type="submit">Télécharger</button>
-    </form>
-    <a href="{{ url_for('index') }}">Retour à la liste des devises</a>
+    <div class="container">
+        <h1>Télécharger un Fichier CSV</h1>
+        <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <button type="submit">Télécharger</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="back-link">Retour à la liste des devises</a>
+    </div>
 </body>
 </html>

@@ -36,14 +36,6 @@ Bienvenue dans **Devise Comparateur**, une application web moderne permettant de
 
 ---
 
-## 📚 Prérequis
-
-1. **Node.js** : Version 14 ou supérieure.
-2. **MongoDB** : Une base de données locale ou hébergée.
-3. Un compte **AWS** pour déployer l'application.
-
----
-
 ## 👨‍💻 Contributeurs
 - **Léane Ponchaut**
 - **Rémy Louault**

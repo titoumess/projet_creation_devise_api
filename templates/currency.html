@@ -8,65 +8,36 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Taux de Change pour la Devise {{ nom_devise }}</h1>
-    
-    <!-- Conteneur pour le graphique -->
-    <canvas id="exchangeRateChart" width="400" height="200"></canvas>
-
-    <!-- Bouton Retour à l'accueil -->
-    <div style="margin-top: 20px;">
-        <a href="{{ url_for('index') }}" style="text-decoration: none;">
-            <button style="
-                padding: 10px 20px;
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 16px;
-            ">
-                Retour à l'accueil
-            </button>
-        </a>
+    <div class="container">
+        <h1>Taux de Change pour la Devise {{ nom_devise }}</h1>
+        <canvas id="exchangeRateChart" width="400" height="200"></canvas>
+        <a href="{{ url_for('index') }}" class="back-link">Retour à l'accueil</a>
     </div>
-
     <script>
-        // Récupérer les données pour le graphique depuis le backend
-        const rates = {{ rates | tojson }}; // Convertir la liste Python en JSON
-        const labels = rates.map(rate => rate.date); // Les dates
-        const data = rates.map(rate => rate.taux_change); // Les taux de change
-
-        // Créer le graphique
+        const rates = {{ rates | tojson }};
+        const labels = rates.map(rate => rate.date);
+        const data = rates.map(rate => rate.taux_change);
         const ctx = document.getElementById('exchangeRateChart').getContext('2d');
         const exchangeRateChart = new Chart(ctx, {
-            type: 'line', // Type de graphique (ligne)
+            type: 'line',
             data: {
-                labels: labels, // Les étiquettes (dates)
+                labels: labels,
                 datasets: [{
                     label: 'Taux de Change',
-                    data: data, // Les données (taux de change)
-                    borderColor: 'rgba(75, 192, 192, 1)', // Couleur de la ligne
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)', // Couleur du remplissage sous la ligne
-                    borderWidth: 1 // Épaisseur de la ligne
+                    data: data,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
                 scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Date'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Taux de Change'
-                        }
-                    }
+                    x: { title: { display: true, text: 'Date' } },
+                    y: { title: { display: true, text: 'Taux de Change' } }
                 }
             }
         });
     </script>
 </body>
+</html>
